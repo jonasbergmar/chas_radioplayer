@@ -54,12 +54,12 @@ After completing this assignment you should be more comfortable using APIs, and 
 
 #### First stretch goal
 
-Design for zero data. Make your page look nice while the station list is loading by creating a "skeleton loader", like we discussed during the lecture. Consider using the Chrome [network throttler](https://developers.google.com/web/tools/chrome-devtools/network-performance/network-conditions) to simulate a slow connection and make it easier to test your code.
+Design for zero data. Make your page look nice while the station list is loading by creating a "skeleton loader". Consider using the Chrome [network throttler](https://developers.google.com/web/tools/chrome-devtools/network-performance/network-conditions) to simulate a slow connection and make it easier to test your code.
 
 #### Second stretch goal
 
 This task has one more stretch goal, but it is a little tough, and you'll need to do some research to complete it.
 
-The task is to implement a search function which calls `.filter()` on the station list to decide which channels to render. This stretch goal requires you to research how to control form inputs.
+The task is to implement a search function which calls `.filter()` on the station list to decide which channels to render. This stretch goal requires you to research how to use form inputs.
 
 You will need use the `onChange` attribute on an input to invoke a function which will use the input's value in the `.filter()` call to filter the stations. If you want the search to be more flexible, look into using [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) from the input value!
