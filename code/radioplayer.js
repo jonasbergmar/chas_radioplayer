@@ -16,44 +16,34 @@ async function fetchData() {
   );
   const data = await response.json();
 
-  // Render list of channels
+  // lista alla kanaler med namn, tagline, bild och färgkod för varje kanal.
   data.channels.forEach((channel) => {
-    if (channel.liveaudio && channel.liveaudio.url) {
-      const channelDiv = document.createElement("div");
-      channelDiv.setAttribute("class", "channel");
+    const channelDiv = document.createElement("div");
+    channelDiv.setAttribute("class", "channel");
 
-      // Display channel name
-      const nameElement = document.createElement("h1");
-      nameElement.textContent = channel.name;
-      channelDiv.appendChild(nameElement);
+    // Display channel name
+    const nameElement = document.createElement("h1");
+    nameElement.textContent = channel.name;
+    channelDiv.appendChild(nameElement);
 
-      const tagLineElement = document.createElement("p");
-      tagLineElement.textContent = channel.tagline;
-      channelDiv.appendChild(tagLineElement);
+    // Display channel image
 
-      // Display channel image
-      if (channel.image) {
-        const imageElement = document.createElement("img");
-        imageElement.src = channel.image;
-        channelDiv.appendChild(imageElement);
-      }
+    const imageElement = document.createElement("img");
+    imageElement.src = channel.image;
+    channelDiv.appendChild(imageElement);
 
-      // Display channel color
-      if (channel.color) {
-        channelDiv.style.backgroundColor = `#${channel.color}`;
-      }
+    channelDiv.style.backgroundColor = `#${channel.color}`;
 
-      // Add audio element for live stream
-      const audioElement = document.createElement("audio");
-      audioElement.controls = true;
-      const sourceElement = document.createElement("source");
-      sourceElement.src = channel.liveaudio.url;
-      sourceElement.type = "audio/mpeg";
-      audioElement.appendChild(sourceElement);
-      channelDiv.appendChild(audioElement);
+    // Add audio element for live stream
+    const audioElement = document.createElement("audio");
+    audioElement.controls = true;
+    const sourceElement = document.createElement("source");
+    sourceElement.src = channel.liveaudio.url;
+    sourceElement.type = "audio/mpeg";
 
-      channelsContainer.appendChild(channelDiv);
-    }
+    audioElement.appendChild(sourceElement);
+    channelDiv.appendChild(audioElement);
+    channelsContainer.appendChild(channelDiv);
   });
 }
 
