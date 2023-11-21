@@ -2,6 +2,12 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.srLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
   display: flex;
   flex-direction: column;

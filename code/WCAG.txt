@@ -1,0 +1,33 @@
+1. Explain the importance of semantic elements in web development according to accessibility guidelines. Provide examples of at least two semantic HTML elements and clarify how they enhance accessibility for users with disabilities.
+
+Det är viktigt att vara semantiskt korrekt när man skapar sina html-element för att vara så tydlig som möjligt till så många användare som möjligt. De semantiska HTML-taggarna ger ett strukturerat och meningsfullt sätt att
+beskriva innehållet och dess relationer på en webbsida, för att förbättra kodens läsbarhet för
+sökmotorer, olika användarenheter och människor. Två exempel som gör det tydligt vad elementet gör eller var det är placerat.
+<header> - beskriver innehållet högst upp på en sida.
+<button> - förklarar tydligt att den innehar rollen som knapp. 
+
+2. Describe the significance of color contrast in web design concerning accessibility. How does adhering to color contrast guidelines benefit users with visual impairments, and what are the recommended contrast ratios as per WCAG standards?
+
+Val av färgkontraster är viktigt att tänka på för att se till att text är så läsbar som möjligt samt att element som t.ex länkar, knappar, bilder etc verkligen syns. Det är särskilt viktigt med tanke på att vissa användare kanske är färgblinda eller har svårt att se kontraster. Helst ska värdet ligga på minst 4,5 för vanlig text och 3 för stora textfonter enligt WCAG:s riktlinjer
+
+
+3. Discuss the role of alternative text (alt text) for images in accordance with accessibility guidelines. Why is it crucial to include descriptive alt text, and how does this contribute to making web content more accessible? Provide examples to illustrate your explanation.
+
+En alt-text möjliggör beskrivning av en bild för en person som använder screenreader, eller ifall bildfilen inte laddas eller visas. Alt-texten ska vara kortfattad och så beskrivande som det går för bilder som är av betydelse för hemsidans innehåll. Du behöver inte använda alt-text för dekorativa bilder då dessa istället kan tillföra onödig information för användaren, lämnar man då alt-fältet tom hoppar en screenreader över denna bild. Exempel är t.ex en bild på ett frågetecken som länkar till supportsida med alt-text: "Kontakta support" istället för "Bild på frågetecken" eller en produktbild med alt-text "Hela kaffebönor från Arvid Nordqvist, 500 gram" istället för "kaffe".
+
+4. Explain the purpose of landmarks in creating accessible web content. How do landmarks aid in navigation for users of assistive technologies, and can you provide examples of commonly used landmark elements in HTML?
+
+Med landmarks kan en användare som använder en screenreader hoppa mellan/navigera fortare mellan olika sektioner på sidan. Exempel på landmarks är header, main, sidebar navigation. En main-tagg ska användas för huvudinnehållet på en hemsida, en header beskriver innehållet högst upp och kan t.ex innehålla logga och en sidebar navigation kan innehålla länkar kopplade till innehållet i main-taggen.
+
+5. Describe the significance of proper form labeling. Why is it important to label form elements, and what strategies can developers implement to ensure effective labeling for improved accessibility?
+
+Det är viktigt att använda labels för form-element på en hemsida för att användaren ska förstå vad och varför man ska fylla i olika information eller gör vissa val. Ett exempel kan vara label: "Skriv emailadress för att få nyhetsbrev" eller "Välj storlek på tröja". En utvecklar kan använda sig av required för att säkerställa att vissa fält fylls i, och autocomplete för att hjälpa användaren att snabbare fylla i olika fält. Man kan även skicka ett beskrivande error-meddelande till användaren för att hjälpa användaren att mer korrekt fylla i sin information, denna kombineras med röd border och varningslogga.
+
+
+
+
+
+
+
+
+

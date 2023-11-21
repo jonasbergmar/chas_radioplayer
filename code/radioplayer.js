@@ -16,25 +16,11 @@ async function fetchData() {
   );
   const data = await response.json();
 
+  channelsContainer.innerHTML = "";
   // lista alla kanaler med namn, tagline, bild och färgkod för varje kanal.
   data.channels.forEach((channel) => {
     const channelDiv = document.createElement("div");
     channelDiv.setAttribute("class", "channel");
-
-    //skeleton loader
-    const skeleton = document.createElement("div");
-    skeleton.setAttribute("class", "skeleton");
-    const skeletonImg = document.createElement("img");
-    const skeletonText = document.createElement("h1");
-    const skeletonAudio = document.createElement("div");
-    channelsContainer.appendChild(skeleton);
-    skeleton.appendChild(skeletonImg);
-    skeleton.appendChild(skeletonText);
-    skeleton.appendChild(skeletonAudio);
-
-    skeleton.addEventListener("load", (e) => {
-      channelsContainer.removeChild(skeleton);
-    });
 
     // Display channel name
     const nameElement = document.createElement("h1");
@@ -61,5 +47,20 @@ async function fetchData() {
   });
 }
 
+//skeleton loader
+function skeletonLoader(skeleton) {
+  for (let i = 0; i < 10; i++) {
+    const skeleton = document.createElement("div");
+    skeleton.setAttribute("class", "skeleton");
+    const skeletonImg = document.createElement("img");
+    const skeletonText = document.createElement("h1");
+    const skeletonAudio = document.createElement("div");
+    channelsContainer.appendChild(skeleton);
+    skeleton.appendChild(skeletonImg);
+    skeleton.appendChild(skeletonText);
+    skeleton.appendChild(skeletonAudio);
+  }
+}
 // Call the async function
 fetchData();
+skeletonLoader();
