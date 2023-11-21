@@ -12,7 +12,7 @@ const channelsContainer = document.getElementById("channels-container");
 async function fetchData() {
   // Fetch data from Sveriges Radio API
   const response = await fetch(
-    "http://api.sr.se/api/v2/channels?format=json&size=100"
+    "https://api.sr.se/api/v2/channels/?format=json"
   );
   const data = await response.json();
 
@@ -21,13 +21,27 @@ async function fetchData() {
     const channelDiv = document.createElement("div");
     channelDiv.setAttribute("class", "channel");
 
+    //skeleton loader
+    const skeleton = document.createElement("div");
+    skeleton.setAttribute("class", "skeleton");
+    const skeletonImg = document.createElement("img");
+    const skeletonText = document.createElement("h1");
+    const skeletonAudio = document.createElement("div");
+    channelsContainer.appendChild(skeleton);
+    skeleton.appendChild(skeletonImg);
+    skeleton.appendChild(skeletonText);
+    skeleton.appendChild(skeletonAudio);
+
+    skeleton.addEventListener("load", (e) => {
+      channelsContainer.removeChild(skeleton);
+    });
+
     // Display channel name
     const nameElement = document.createElement("h1");
     nameElement.textContent = channel.name;
     channelDiv.appendChild(nameElement);
 
     // Display channel image
-
     const imageElement = document.createElement("img");
     imageElement.src = channel.image;
     channelDiv.appendChild(imageElement);
@@ -35,14 +49,14 @@ async function fetchData() {
     channelDiv.style.backgroundColor = `#${channel.color}`;
 
     // Add audio element for live stream
-    const audioElement = document.createElement("audio");
-    audioElement.controls = true;
-    const sourceElement = document.createElement("source");
-    sourceElement.src = channel.liveaudio.url;
-    sourceElement.type = "audio/mpeg";
+    const audioPlayerElement = document.createElement("audio");
+    audioPlayerElement.controls = true;
+    const audioSourceElement = document.createElement("source");
+    audioSourceElement.src = channel.liveaudio.url;
+    audioSourceElement.type = "audio/mpeg";
 
-    audioElement.appendChild(sourceElement);
-    channelDiv.appendChild(audioElement);
+    audioPlayerElement.appendChild(audioSourceElement);
+    channelDiv.appendChild(audioPlayerElement);
     channelsContainer.appendChild(channelDiv);
   });
 }

@@ -1,20 +1,29 @@
 body {
-  font-family: "Avenir-Heavy", sans-serif;
-  margin: 20px;
+  font-family: "Roboto", sans-serif;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .channel {
   align-items: center;
   display: grid;
-  width: 50%;
-  grid-template-columns: 1fr 1fr;
+  width: 50vw;
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr 1fr;
   margin-bottom: 20px;
   padding: 10px;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.4);
   border-radius: 20px;
+  color: white;
 }
 
 .channel img {
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
   margin: 10px;
   max-width: 150px;
   max-height: 150px;
@@ -25,9 +34,74 @@ body {
 audio {
   grid-column: 2;
   grid-row: 2;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.4);
+  border-radius: 30px;
+  width: 100%;
 }
 
 h1 {
   grid-column: 2;
   grid-row: 1;
+}
+
+.skeleton {
+  animation: skeleton-loading 2s linear infinite alternate;
+  align-items: center;
+  display: grid;
+  width: 50vw;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+}
+
+.skeleton img {
+  animation: skeleton-loading 2s linear infinite alternate;
+  height: 150px;
+  width: 150px;
+  background-color: grey;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  margin: 10px;
+  max-width: 150px;
+  max-height: 150px;
+  grid-column: 1; /* Updated grid-column property */
+  grid-row: 1 / span 2; /* Updated grid-row property */
+}
+
+.skeleton div {
+  animation: skeleton-loading 2s linear infinite alternate;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.4);
+  grid-column: 2;
+  grid-row: 2;
+  height: 3rem;
+  width: 100px;
+  background-color: grey;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.skeleton h1 {
+  animation: skeleton-loading 2s linear infinite alternate;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.4);
+  grid-column: 2;
+  grid-row: 1;
+  height: 3rem;
+  width: 30%;
+  background-color: grey;
+  border-radius: 5px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  50% {
+    background-color: hsl(200, 20%, 95%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 80%);
+  }
 }
